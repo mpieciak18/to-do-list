@@ -1,0 +1,114 @@
+body {
+    font-family: arial;
+    margin: 0;
+}
+header {
+    height: 12.5vh;
+    background-color: rgb(50, 50, 50);
+    margin: 0;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    font-size: xx-large;
+    font-weight: bolder;
+    align-items: center;
+}
+#logo {
+    height: 5vh;
+    padding-right: 10px;
+    padding-left: 20px;
+}
+main {
+    min-height: 82.5vh;
+}
+#top-nav > div, #bottom-nav > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 35px;
+    cursor: pointer;
+    padding: 0px 10px;
+    border-radius: 3px;
+}
+#top-nav > div:hover, #bottom-nav > div:hover {
+    background-color: rgb(200, 200, 200);
+}
+.icon {
+    height: 20px;
+    padding-right: 5px;
+}
+#content-title {
+    font-size: xx-large;
+    padding-bottom: 15px;
+}
+#bottom-nav-title {
+    font-size: x-large;
+    padding: 15px 0px;
+}
+.task {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 0 10px 0;
+}
+.x-button {
+    margin-right: 10px;
+}
+.x-button:hover {
+    cursor: pointer;
+}
+.ellipses {
+    border-top-style: dotted;
+    border-color: black;
+    border-width: 1px;
+    height: 1px;
+    margin: 0px 20px 0px 20px;
+    align-self: center;
+    flex-grow: 1;
+}
+.due-date {
+    /* margin-left: auto; */
+}
+#new-task-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#new-task {
+    text-align: center;
+    padding: 10px 100px 10px 100px;
+    border-radius: 3px;
+}
+#new-task:hover {
+    background-color: rgb(200, 200, 200);
+    cursor: pointer;
+}
+footer {
+    height: 5vh;
+    background-color: rgb(50, 50, 50);
+    margin: 0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#github-logo {
+    height: 3vh;
+    padding-left: 10px;
+}
+@media (min-width: 600px) {
+    main {
+        display: flex;
+        flex-direction: row;
+    }
+    #navbar {
+        width: 235px;
+        background: rgb(220, 220, 220);
+        padding: 30px;
+    }
+    #content {
+        padding: 25px 50px;
+        width:100%;
+        max-width: 750px;
+    }
+}
