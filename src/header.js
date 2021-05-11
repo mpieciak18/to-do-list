@@ -1,6 +1,6 @@
 const render = function() {
 
-    const pageBody = document.querySelector('body');
+    const body = document.querySelector('body');
 
     const header = document.createElement('header');
 
@@ -11,10 +11,10 @@ const render = function() {
     const text = document.createElement('p');
     text.innerText = 'To-Do List';
 
-    header.append(image);
-    header.append(text);
+    header.appendChild(image);
+    header.appendChild(text);
 
-    pageBody.prepend(header);
+    body.prepend(header);
 
 };
 
