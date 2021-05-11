@@ -1,0 +1,1 @@
+(()=>{"use strict";!function(){const e=document.querySelector("body"),t=document.createElement("header"),n=document.createElement("img");n.id="logo",n.src="/dist/images/checkbox.png";const c=document.createElement("p");c.innerText="To-Do List",t.append(n),t.append(c),e.prepend(t)}()})();
