@@ -80,8 +80,6 @@ const render = function() {
 
     main.prepend(navBar);
 
-    console.log(navBar, main);
-
 };
 
 export { render as renderNavBar };
