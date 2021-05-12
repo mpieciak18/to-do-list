@@ -1,9 +1,7 @@
 import { renderHeader } from './header.js'
 import { renderFooter } from './footer.js'
-import { renderNavBar } from './navbar.js'
-import { renderContent } from './content.js'
+import { renderMain } from './main-element'
 
 renderHeader();
+renderMain();
 renderFooter();
-renderNavBar();
-renderContent();
