@@ -1,5 +1,5 @@
-import { renderNavBar } from './navbar.js'
-import { renderContent } from './content.js'
+import { renderNavBar } from './main/navbar.js'
+import { renderContent } from './main/content.js'
 
 const render = function() {
 
