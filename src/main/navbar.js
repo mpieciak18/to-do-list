@@ -62,6 +62,7 @@ const render = function() {
 
     const unassignedTasks = document.createElement('div');
     unassignedTasks.id = 'unassigned-tasks';
+    unassignedTasks.classList = 'project';
 
     const projectImage = document.createElement('img');
     projectImage.classList = 'icon';
@@ -74,9 +75,17 @@ const render = function() {
     unassignedTasks.appendChild(projectTitle);
     bottomNav.appendChild(unassignedTasks);
 
+    const newProjectContainer = document.createElement('div');
+    newProjectContainer.id = 'new-project-container';
+    const newProject = document.createElement('div');
+    newProject.id = 'new-project';
+    newProject.innerText = '➕ New Project';
+    newProjectContainer.appendChild(newProject);
+
     navBar.appendChild(topNav);
     navBar.appendChild(bottomNavTitle);
     navBar.appendChild(bottomNav);
+    navBar.appendChild(newProjectContainer);
 
     main.prepend(navBar);
 
