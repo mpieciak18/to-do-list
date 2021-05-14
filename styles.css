@@ -21,7 +21,10 @@ header {
 main {
     min-height: 82.5vh;
 }
-#top-nav > div, #bottom-nav > div {
+#new-project-container {
+    padding-top: 10px;
+}
+#top-nav > div, #bottom-nav > div, #new-project {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -30,7 +33,7 @@ main {
     padding: 0px 10px;
     border-radius: 3px;
 }
-#top-nav > div:hover, #bottom-nav > div:hover {
+#top-nav > div:hover, #bottom-nav > div:hover, #new-project:hover {
     background-color: rgb(200, 200, 200);
 }
 .icon {
@@ -65,9 +68,6 @@ main {
     margin: 0px 20px 0px 20px;
     align-self: center;
     flex-grow: 1;
-}
-.due-date {
-    /* margin-left: auto; */
 }
 #new-task-container {
     display: flex;
