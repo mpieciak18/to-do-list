@@ -43,6 +43,7 @@ main {
 #content-title {
     font-size: xx-large;
     padding-bottom: 15px;
+    padding-left: 10px;
 }
 #bottom-nav-title {
     font-size: x-large;
@@ -52,12 +53,21 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 10px 0 10px 0;
+    padding: 10px;
+    border-radius: 3px;
 }
-.x-button {
+.x-button-task {
     margin-right: 10px;
 }
-.x-button:hover {
+.x-button-task:hover {
+    cursor: pointer;
+}
+.x-button-project {
+    margin-left: auto;
+    /* font-size: 0px; */
+    /* Above code used later on for dynamic rendering */
+}
+.x-button-project:hover {
     cursor: pointer;
 }
 .ellipses {
@@ -79,7 +89,7 @@ main {
     padding: 10px 100px 10px 100px;
     border-radius: 3px;
 }
-#new-task:hover {
+#new-task:hover, .task:hover {
     background-color: rgb(200, 200, 200);
     cursor: pointer;
 }
@@ -104,10 +114,10 @@ footer {
     #navbar {
         width: 235px;
         background: rgb(220, 220, 220);
-        padding: 30px;
+        padding: 30px 15px;
     }
     #content {
-        padding: 25px 50px;
+        padding: 25px 30px;
         width:100%;
         max-width: 800px;
     }

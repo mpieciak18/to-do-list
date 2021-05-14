@@ -6,7 +6,7 @@ const newTask = function(descr, due) {
     task.classList = 'task';
     
     const xButton = document.createElement('div');
-    xButton.classList = 'x-button';
+    xButton.classList = 'x-button-task';
     xButton.innerText = '✕';
     task.appendChild(xButton);
 
