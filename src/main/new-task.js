@@ -1,3 +1,5 @@
+import { deleteBar } from './x-button.js';
+
 const newTask = function(descr, due) {
 
     const taskList = document.getElementById('task-list');
@@ -8,6 +10,7 @@ const newTask = function(descr, due) {
     const xButton = document.createElement('div');
     xButton.classList = 'x-button-task';
     xButton.innerText = '✕';
+    xButton.addEventListener('click', deleteBar);
     task.appendChild(xButton);
 
     const taskTitle = document.createElement('div');

@@ -1,8 +1,8 @@
 import { renderHeader } from './header.js'
 import { renderFooter } from './footer.js'
 import { renderMain } from './main-element'
-import { newTask } from './main/newTask.js'
-import { newProject } from './main/newProject.js';
+import { newTask } from './main/new-task.js'
+import { newProject } from './main/new-project.js';
 
 renderHeader();
 renderMain();

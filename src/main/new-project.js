@@ -1,3 +1,5 @@
+import { deleteBar } from './x-button.js'
+
 const newProject = function(name) {
 
     const bottomNav = document.getElementById('bottom-nav');
@@ -17,6 +19,7 @@ const newProject = function(name) {
     const xButton = document.createElement('div');
     xButton.classList = 'x-button-project';
     xButton.innerText = '✕';
+    xButton.addEventListener('click', deleteBar);
 
     newProject.appendChild(projectImage);
     newProject.appendChild(projectTitle);
