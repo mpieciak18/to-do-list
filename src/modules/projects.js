@@ -1,12 +1,24 @@
-import { deleteBar } from './x-button.js'
+import { renderTasks } from './tasks.js';
+
+const deleteBar = function(event) {
+
+    const deletedBar = event.target.parentNode;
+
+    deletedBar.remove();
+
+};
+
+let projArr = [];
+
+let projCounter = 0;
 
 const newProject = function(name) {
 
     const bottomNav = document.getElementById('bottom-nav');
 
     const newProject = document.createElement('div');
-    // newProject.id = ???;
-    // Above code needed for associated tasks later on
+    newProject.id = projCounter;
+    projCounter += 1;
     newProject.classList = 'project';
 
     const projectImage = document.createElement('img');
@@ -24,7 +36,9 @@ const newProject = function(name) {
     newProject.appendChild(projectImage);
     newProject.appendChild(projectTitle);
     newProject.appendChild(xButton);
+    newProject.addEventListener('click', renderTasks);
 
+    projArr.push(newProject);
     bottomNav.appendChild(newProject);
 
 };

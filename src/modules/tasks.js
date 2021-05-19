@@ -1,4 +1,12 @@
-import { deleteBar } from './x-button.js';
+const deleteBar = function(event) {
+
+    const deletedBar = event.target.parentNode;
+
+    deletedBar.remove();
+
+};
+
+let taskArr = [];
 
 const newTask = function(descr, due) {
 
@@ -28,7 +36,21 @@ const newTask = function(descr, due) {
     task.appendChild(dueDate);
     
     taskList.appendChild(task);
+    taskArr.push(task);
 
 };
 
-export { newTask };
+const renderTasks = function() {
+
+    const taskList = document.getElementById('task-list');
+    taskList.innerHTML = '';
+
+    for (let i = 0; i < taskArr.length; i++) {
+
+        taskList.appendChild(taskArr[i]);
+
+    };
+
+};
+
+export { newTask, renderTasks };
