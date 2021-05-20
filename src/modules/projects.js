@@ -37,7 +37,6 @@ const newProject = function(name) {
     };
 
     newProject.addEventListener('click', renderTasks);
-    console.log(newProject);
 
     bottomNav.appendChild(newProject).cloneNode(true);
 

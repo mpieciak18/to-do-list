@@ -1,13 +1,23 @@
-const deleteBar = function(event) {
-
-    const deletedBar = event.target.parentNode;
-    deletedBar.remove();
-
-};
-
 let taskArr = [];
 
 let currProj = 0;
+
+const deleteBar = function(event) {
+
+    const deletedBar = event.target.parentNode;
+
+    for (let i = 0; i < taskArr.length; i++) {
+        if (deletedBar == taskArr[i]) {
+            taskArr.splice(i, 1);
+            break;
+        } else {
+            continue
+        };
+    };
+
+    deletedBar.remove();
+
+};
 
 const newTask = function(descr, due) {
 
