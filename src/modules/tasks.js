@@ -1,12 +1,13 @@
 const deleteBar = function(event) {
 
     const deletedBar = event.target.parentNode;
-
     deletedBar.remove();
 
 };
 
 let taskArr = [];
+
+let currProj = 0;
 
 const newTask = function(descr, due) {
 
@@ -14,6 +15,7 @@ const newTask = function(descr, due) {
 
     const task = document.createElement('div');
     task.classList = 'task';
+    task.classList.add(currProj.toString());
     
     const xButton = document.createElement('div');
     xButton.classList = 'x-button-task';
@@ -40,15 +42,30 @@ const newTask = function(descr, due) {
 
 };
 
-const renderTasks = function() {
+const renderTasks = function(event) {
+
+    projectId = '';
+
+    if (event.target.classList[0] == 'x-button-project') {
+        return;
+    } else if (event.target.classList[0] == 'project') {
+        projectId = event.target.classList[0];
+    } else {
+        projectId = event.target.parentNode.classList[0];
+    };
+
+    currProj = projectId;
 
     const taskList = document.getElementById('task-list');
     taskList.innerHTML = '';
 
     for (let i = 0; i < taskArr.length; i++) {
-
-        taskList.appendChild(taskArr[i]);
-
+        task = taskArr[i];
+        if (task.classList[1] = projectId) {
+            taskList.appendChild(taskArr[i]);
+        } else {
+            continue;
+        };
     };
 
 };

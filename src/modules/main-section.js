@@ -1,3 +1,5 @@
+import { newProject } from './projects.js';
+
 const renderNavBar = function() {
    
     const main = document.querySelector('main');
@@ -60,27 +62,12 @@ const renderNavBar = function() {
     const bottomNav = document.createElement('div');
     bottomNav.id = 'bottom-nav';
 
-    const unassignedTasks = document.createElement('div');
-    unassignedTasks.id = 'unassigned-tasks';
-    unassignedTasks.classList = 'project';
-
-    const projectImage = document.createElement('img');
-    projectImage.classList = 'icon';
-    projectImage.src = '/dist/images/project.png';
-
-    const projectTitle = document.createElement('p');
-    projectTitle.innerText = 'Unassigned Tasks';
-
-    unassignedTasks.appendChild(projectImage);
-    unassignedTasks.appendChild(projectTitle);
-    bottomNav.appendChild(unassignedTasks);
-
     const newProjectContainer = document.createElement('div');
     newProjectContainer.id = 'new-project-container';
-    const newProject = document.createElement('div');
-    newProject.id = 'new-project';
-    newProject.innerText = '➕ New Project';
-    newProjectContainer.appendChild(newProject);
+    const newProjectButton = document.createElement('div');
+    newProjectButton.id = 'new-project';
+    newProjectButton.innerText = '➕ New Project';
+    newProjectContainer.appendChild(newProjectButton);
 
     navBar.appendChild(topNav);
     navBar.appendChild(bottomNavTitle);
@@ -88,6 +75,8 @@ const renderNavBar = function() {
     navBar.appendChild(newProjectContainer);
 
     main.prepend(navBar);
+
+    newProject('Unassigned Tasks');
 
 };
 
@@ -124,7 +113,7 @@ const renderMain = function() {
     const body = document.querySelector('body');
 
     const main = document.createElement('main');
-    
+
     body.append(main);
 
     renderNavBar();
