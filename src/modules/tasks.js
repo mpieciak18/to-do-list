@@ -54,24 +54,23 @@ const newTask = function(descr, due) {
 
 const renderTasks = function(event) {
 
-    projectId = '';
+    let projectId = '';
 
     if (event.target.classList[0] == 'x-button-project') {
         return;
     } else if (event.target.classList[0] == 'project') {
-        projectId = event.target.classList[0];
+        projectId = event.target.id;
     } else {
-        projectId = event.target.parentNode.classList[0];
+        projectId = event.target.parentNode.id;
     };
 
     currProj = projectId;
-
     const taskList = document.getElementById('task-list');
     taskList.innerHTML = '';
 
     for (let i = 0; i < taskArr.length; i++) {
-        task = taskArr[i];
-        if (task.classList[1] = projectId) {
+        let task = taskArr[i];
+        if (task.classList[1] == projectId) {
             taskList.appendChild(taskArr[i]);
         } else {
             continue;
