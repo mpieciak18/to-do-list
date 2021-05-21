@@ -1,5 +1,7 @@
 import { newProject } from './projects.js';
 import { topNavClick } from './tasks.js';
+import { popupTask } from './popups.js';
+const popTask = new popupTask();
 
 const renderNavBar = function() {
    
@@ -104,6 +106,7 @@ const renderContent = function() {
     newTask.id = 'new-task';
     newTask.innerText = '➕ New Task';
     newTaskContainer.appendChild(newTask);
+    newTaskContainer.addEventListener('click', popTask.open);
 
     content.appendChild(contentTitle);
     content.appendChild(taskList);
