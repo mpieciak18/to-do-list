@@ -1,4 +1,5 @@
 import { newProject } from './projects.js';
+import { topNavClick } from './tasks.js';
 
 const renderNavBar = function() {
    
@@ -23,6 +24,7 @@ const renderNavBar = function() {
 
     allTasks.appendChild(allTasksImage);
     allTasks.appendChild(allTasksText);
+    allTasks.addEventListener('click', topNavClick);
     topNav.appendChild(allTasks);
 
     const dueToday = document.createElement('div');
@@ -38,10 +40,11 @@ const renderNavBar = function() {
 
     dueToday.appendChild(dueTodayImage);
     dueToday.appendChild(dueTodayText);
+    dueToday.addEventListener('click', topNavClick);
     topNav.appendChild(dueToday);
 
     const dueWeek = document.createElement('div');
-    dueToday.id = 'due-this-week';
+    dueWeek.id = 'due-this-week';
 
     const dueWeekImage = document.createElement('img');
     dueWeekImage.id = 'due-this-week-img';
@@ -53,6 +56,7 @@ const renderNavBar = function() {
 
     dueWeek.appendChild(dueWeekImage);
     dueWeek.appendChild(dueWeekText);
+    dueWeek.addEventListener('click', topNavClick);
     topNav.appendChild(dueWeek);
 
     const bottomNavTitle = document.createElement('div');
@@ -80,7 +84,7 @@ const renderNavBar = function() {
 
 };
 
-const renderContent = function(title = 'All Tasks', ) {
+const renderContent = function() {
 
     const main = document.querySelector('main');
 

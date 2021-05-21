@@ -52,7 +52,7 @@ const newTask = function(descr, due) {
 
 };
 
-const renderTasks = function(event) {
+const renderTasksFromBottomNav = function(event) {
 
     let projectId = '';
 
@@ -71,7 +71,7 @@ const renderTasks = function(event) {
     for (let i = 0; i < taskArr.length; i++) {
         let task = taskArr[i];
         if (task.classList[1] == projectId) {
-            taskList.appendChild(taskArr[i]);
+            taskList.appendChild(task);
         } else {
             continue;
         };
@@ -79,4 +79,63 @@ const renderTasks = function(event) {
 
 };
 
-export { newTask, renderTasks };
+const topNavClick = function(event) {
+
+    let id = '';
+
+    if (event.target.tagName == 'DIV') {
+        id = event.target.id;
+        console.log(event.target.id);
+    } else {
+        id = event.target.parentNode.id;
+        console.log(event.target.parentNode.id);
+    };
+
+    renderTasksFromTopNav(id);
+
+};
+
+const renderTasksFromTopNav = function(id) {
+
+    const taskList = document.getElementById('task-list');
+    taskList.innerHTML = '';
+
+    if (id == 'all-tasks') {
+        for (let i = 0; i < taskArr.length; i++) {
+            const task = taskArr[i];
+            taskList.appendChild(task);
+        };
+    } else if (id == 'due-today') {
+        const d = new Date();
+        let thisMonth = d.getMonth() + 1;
+        if (thisMonth < 10) {
+            thisMonth = `0${thisMonth}`;
+        };
+        const dateToday = `${thisMonth}/${d.getDate()}/${d.getFullYear()}`;
+        for (let i = 0; i < taskArr.length; i++) {
+            const task = taskArr[i];
+            const taskDate = task.lastChild.innerText;
+            if (dateToday == taskDate)
+                taskList.appendChild(task);
+        };
+    } else if (id == 'due-this-week') {
+        const datesThisWeek  = [...Array(7)].map((_, i) => {
+            const d = new Date()
+            d.setDate(d.getDate() + i)
+            let thisMonth = d.getMonth() + 1;
+            if (thisMonth < 10) {
+                thisMonth = `0${thisMonth}`;
+            };
+            return `${thisMonth}/${d.getDate()}/${d.getFullYear()}`
+        });
+        for (let i = 0; i < taskArr.length; i++) {
+            const task = taskArr[i];
+            const taskDate = task.lastChild.innerText;
+            if (datesThisWeek.includes(taskDate) == true)
+                taskList.appendChild(task);
+        };
+    };
+
+}
+
+export { newTask, renderTasksFromBottomNav , topNavClick};

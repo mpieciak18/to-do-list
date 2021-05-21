@@ -1,4 +1,4 @@
-import { renderTasks } from './tasks.js';
+import { renderTasksFromBottomNav } from './tasks.js';
 
 const deleteBar = function(event) {
 
@@ -36,7 +36,7 @@ const newProject = function(name) {
         newProject.appendChild(xButton);
     };
 
-    newProject.addEventListener('click', renderTasks);
+    newProject.addEventListener('click', renderTasksFromBottomNav);
 
     bottomNav.appendChild(newProject).cloneNode(true);
 
