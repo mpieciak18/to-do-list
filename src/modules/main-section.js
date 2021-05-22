@@ -1,6 +1,9 @@
 import { newProject } from './projects.js';
+import { newTask } from './tasks.js';
 import { topNavClick } from './tasks.js';
 import { popupTask } from './popups.js';
+
+// pop-up code
 const popTask = new popupTask();
 
 const renderNavBar = function() {
@@ -106,13 +109,23 @@ const renderContent = function() {
     newTask.id = 'new-task';
     newTask.innerText = '➕ New Task';
     newTaskContainer.appendChild(newTask);
+    // pop-up code
     newTaskContainer.addEventListener('click', popTask.open);
+    popTask.pSubmit.addEventListener('click', newTaskFromForm);
 
     content.appendChild(contentTitle);
     content.appendChild(taskList);
     content.appendChild(newTaskContainer);
     main.appendChild(content);
 
+};
+// pop-up code
+const newTaskFromForm = function(event) {
+    let descr = event.target.parentNode[0].value;
+    let due = event.target.parentNode[1].value.split('-');
+    due = `${due[1]}/${due[2]}/${due[0]}`;
+    newTask(descr, due);
+    popTask.close();
 };
 
 const renderMain = function() {

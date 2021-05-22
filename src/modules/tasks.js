@@ -1,6 +1,6 @@
 let taskArr = [];
 
-let currProj = 0;
+let currProj = '0';
 
 const deleteBar = function(event) {
 
@@ -25,7 +25,7 @@ const newTask = function(descr, due) {
 
     const task = document.createElement('div');
     task.classList = 'task';
-    task.classList.add(currProj.toString());
+    task.classList.add(currProj);
     
     const xButton = document.createElement('div');
     xButton.classList = 'x-button-task';
@@ -54,23 +54,20 @@ const newTask = function(descr, due) {
 
 const renderTasksFromBottomNav = function(event) {
 
-    let projectId = '';
-
     if (event.target.classList[0] == 'x-button-project') {
         return;
     } else if (event.target.classList[0] == 'project') {
-        projectId = event.target.id;
+        currProj = event.target.id;
     } else {
-        projectId = event.target.parentNode.id;
+        currProj = event.target.parentNode.id;
     };
-
-    currProj = projectId;
+    
     const taskList = document.getElementById('task-list');
     taskList.innerHTML = '';
 
     for (let i = 0; i < taskArr.length; i++) {
         let task = taskArr[i];
-        if (task.classList[1] == projectId) {
+        if (task.classList[1] == currProj) {
             taskList.appendChild(task);
         } else {
             continue;
@@ -81,16 +78,14 @@ const renderTasksFromBottomNav = function(event) {
 
 const topNavClick = function(event) {
 
+    currProj = '0';
     let id = '';
 
     if (event.target.tagName == 'DIV') {
         id = event.target.id;
-        console.log(event.target.id);
     } else {
         id = event.target.parentNode.id;
-        console.log(event.target.parentNode.id);
     };
-
     renderTasksFromTopNav(id);
 
 };

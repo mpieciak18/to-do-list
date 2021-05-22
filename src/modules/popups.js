@@ -59,7 +59,7 @@ class popupTask {
       this.pSubmit = document.createElement("BUTTON");
       this.pSubmit.id = "button-task";
       this.pSubmit.innerText = 'Add New Task';
-      this.pSubmit.setAttribute("type", "submit");
+      this.pSubmit.setAttribute("type", "button");
       this.pForm.appendChild(this.pSubmit);
   
       // (A11) APPEND FORM TO BOX
