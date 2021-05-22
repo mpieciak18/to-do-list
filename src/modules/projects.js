@@ -10,7 +10,7 @@ const deleteBar = function(event) {
 
 let projCounter = 0;
 
-const newProject = function(name) {
+const newProject = function(descr) {
 
     const bottomNav = document.getElementById('bottom-nav');
 
@@ -23,7 +23,7 @@ const newProject = function(name) {
     projectImage.src = '/dist/images/project.png';
 
     const projectTitle = document.createElement('p');
-    projectTitle.innerText = name;
+    projectTitle.innerText = descr;
 
     newProject.appendChild(projectImage);
     newProject.appendChild(projectTitle);

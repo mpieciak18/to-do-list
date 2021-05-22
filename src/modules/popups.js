@@ -85,6 +85,80 @@ class popupTask {
     close = () => {
       this.pWrap.classList.remove("open");
     };
+};
+
+class popupProj {
+
+  // (A) ATTACH POPUP HTML
+  constructor() {
+    // (A1) POPUP WRAPPER
+    this.pWrap = document.createElement("div");
+    this.pWrap.id = "pop-up-proj";
+    document.body.appendChild(this.pWrap);
+    
+    // (A2) POPUP BOX
+    this.pBox = document.createElement("div");
+    this.pBox.id = "pop-box-proj";
+    this.pWrap.appendChild(this.pBox);
+    
+    // (A3) TITLE
+    this.pTitle = document.createElement("h1");
+    this.pTitle.id = "pop-title-proj";
+    this.pTitle.innerHTML = 'Add a New Project';
+    this.pBox.appendChild(this.pTitle);
+
+    // (A4) CREATE FORM
+    this.pForm = document.createElement("form");
+    this.pForm.action = "";
+    this.pForm.method = "";
+    this.pForm.setAttribute('autocomplete', 'off');
+
+    // (A5) FORM FIELD ONE (DESCRIPTION)
+    this.pLabelOne = document.createElement("LABEL");
+    this.pLabelOne.classList = "pop-labels";
+    this.pLabelOne.htmlFor = "input-one";
+    this.pLabelOne.innerHTML = "Project Description:"
+    this.pForm.appendChild(this.pLabelOne);
+    this.pInputOne = document.createElement("INPUT");
+    this.pInputOne.classList = "pop-inputs";
+    this.pInputOne.id = "input-one-proj";
+    this.pInputOne.name = "input-one";
+    this.pInputOne.placeholder = 'Enter the project\'s description.';
+    this.pInputOne.setAttribute("type", "text");
+    this.pInputOne.setAttribute("minlength", "1");
+    this.pInputOne.setAttribute('required', 'true')
+    this.pForm.appendChild(this.pInputOne);
+
+     // (A10) FORM SUBMIT BUTTON
+    this.pSubmit = document.createElement("BUTTON");
+    this.pSubmit.id = "button-proj";
+    this.pSubmit.innerText = 'Add New Project';
+    this.pSubmit.setAttribute("type", "button");
+    this.pForm.appendChild(this.pSubmit);
+
+    // (A11) APPEND FORM TO BOX
+
+    this.pBox.appendChild(this.pForm);
+    
+    // (A12) CLOSE
+    this.pClose = document.createElement("div");
+    this.pClose.id = "pop-close-proj";
+    this.pClose.innerHTML = "✕";
+    this.pClose.onclick = this.close;
+    this.pBox.appendChild(this.pClose);
+
+    return this;
   };
   
-  export { popupTask };
+  // (B) OPEN POPUP
+  open = () => {
+    this.pWrap.classList.add("open");
+  };
+
+  // (C) CLOSE POPUP
+  close = () => {
+    this.pWrap.classList.remove("open");
+  };
+};
+  
+export { popupTask, popupProj };

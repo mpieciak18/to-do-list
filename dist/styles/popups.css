@@ -1,5 +1,5 @@
 /* (A) WRAPPER */
-#pop-up-task, #pop-up-project {
+#pop-up-task, #pop-up-proj {
     position: fixed;
     top: 0; left: 0;
     z-index: 999;
@@ -10,13 +10,13 @@
     opacity: 0;
     transition: opacity 0.2s;
 }
-#pop-up-task.open, #pop-up-project.open {
+#pop-up-task.open, #pop-up-proj.open {
     visibility: visible;
     opacity: 1;
 }
   
   /* (B) BOX */
-#pop-box-task, #pop-box-project {
+#pop-box-task, #pop-box-proj {
     position: relative;
     max-width: 400px;
     background: white;
@@ -27,13 +27,13 @@
     transform: translateY(-50%);
     border-radius: 5px;
 }
-#pop-box-task > *, #pop-box-project > * {
+#pop-box-task > *, #pop-box-proj > * {
     font-family: 'PT Sans', sans-serif;
     color: #164460;
 }
   
   /* (C) TITLE */
-#pop-title-task, #pop-title-project {
+#pop-title-task, #pop-title-proj {
     padding: 10px;
     margin: 0;
     font-family: 'PT Sans Narrow', sans-serif;
@@ -63,12 +63,12 @@
 }
 
 
-#submit-task, #submit-project {
+#submit-task, #submit-proj {
     font-size: medium;
 }
   
   /* (E) CLOSE BUTTON */
-#pop-close-task, #pop-close-project {
+#pop-close-task, #pop-close-proj {
     position: absolute;
     top: 0; right: 5px;
     padding: 5px;

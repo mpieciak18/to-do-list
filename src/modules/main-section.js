@@ -1,10 +1,11 @@
 import { newProject } from './projects.js';
 import { newTask } from './tasks.js';
 import { topNavClick } from './tasks.js';
-import { popupTask } from './popups.js';
+import { popupTask, popupProj } from './popups.js';
 
 // pop-up code
 const popTask = new popupTask();
+const popProj = new popupProj();
 
 const renderNavBar = function() {
    
@@ -77,6 +78,9 @@ const renderNavBar = function() {
     newProjectButton.id = 'new-project';
     newProjectButton.innerText = '➕ New Project';
     newProjectContainer.appendChild(newProjectButton);
+    // pop-up code
+    newProjectContainer.addEventListener('click', popProj.open);
+    popProj.pSubmit.addEventListener('click', newProjFromForm);
 
     navBar.appendChild(topNav);
     navBar.appendChild(bottomNavTitle);
@@ -87,6 +91,13 @@ const renderNavBar = function() {
 
     newProject('Unassigned Tasks');
 
+};
+
+// pop-up code
+const newProjFromForm = function(event) {
+    let descr = event.target.parentNode[0].value;
+    newProject(descr);
+    popProj.close();
 };
 
 const renderContent = function() {
