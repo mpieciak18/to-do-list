@@ -133,4 +133,4 @@ const renderTasksFromTopNav = function(id) {
 
 }
 
-export { newTask, renderTasksFromBottomNav , topNavClick};
+export { newTask, renderTasksFromBottomNav , topNavClick, taskArr };
