@@ -61,6 +61,8 @@ const renderTasksFromBottomNav = function(event) {
     } else {
         currProj = event.target.parentNode.id;
     };
+
+    renderTitle(currProj);
     
     const taskList = document.getElementById('task-list');
     taskList.innerHTML = '';
@@ -87,6 +89,7 @@ const topNavClick = function(event) {
         id = event.target.parentNode.id;
     };
     renderTasksFromTopNav(id);
+    renderTitle(id);
 
 };
 
@@ -131,6 +134,15 @@ const renderTasksFromTopNav = function(id) {
         };
     };
 
-}
+};
+
+const renderTitle = function(id) {
+
+    const projBar = document.getElementById(id);
+    const title = document.getElementById('content-title');
+
+    title.innerText = projBar.childNodes[1].innerText;
+
+};
 
 export { newTask, renderTasksFromBottomNav , topNavClick, taskArr };
