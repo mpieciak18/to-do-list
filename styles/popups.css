@@ -28,15 +28,14 @@
     border-radius: 5px;
 }
 #pop-box-task > *, #pop-box-proj > * {
-    font-family: 'PT Sans', sans-serif;
-    color: #164460;
+    font-family: arial;
 }
   
   /* (C) TITLE */
 #pop-title-task, #pop-title-proj {
     padding: 10px;
     margin: 0;
-    font-family: 'PT Sans Narrow', sans-serif;
+    font-family: arial;
 }
   
   /* (D) FORM */
