@@ -1,5 +1,9 @@
 import { renderTasksFromBottomNav, taskArr } from './tasks.js';
 
+let projArr = [];
+
+let projCounter = 0;
+
 const deleteProj = function(event) {
 
     const deletedProj = event.target.parentNode;
@@ -15,20 +19,27 @@ const deleteProj = function(event) {
               return value;
         };
     });
-    
-    taskArr = leaveItems;
 
     for (let i = 0; i < delItems.length; i++) {
         delItems[i].remove()
     };
 
+    taskArr = leaveItems;
+
+    for (let i = 0; i < projArr.length; i++) {
+        if (deletedProj == taskArr[i]) {
+            projArr.splice(i, 1);
+            break;
+        } else {
+            continue
+        };
+    };
+
     deletedProj.remove();
 
+    console.log(projArr);
+
 };
-
-let projArr = [];
-
-let projCounter = 0;
 
 const newProject = function(descr) {
 
