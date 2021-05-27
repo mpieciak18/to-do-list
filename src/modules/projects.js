@@ -26,9 +26,10 @@ const deleteProj = function(event) {
 
     taskArr = leaveItems;
 
-    for (let i = 0; i < projArr.length; i++) {
+    for (let i = 0; i < taskArr.length; i++) {
         if (deletedProj == taskArr[i]) {
             projArr.splice(i, 1);
+            localStorage.setObj(0, projArr);
             break;
         } else {
             continue
@@ -37,16 +38,20 @@ const deleteProj = function(event) {
 
     deletedProj.remove();
 
-    console.log(projArr);
-
 };
 
-const newProject = function(descr) {
+const newProject = function(descr, id = null) {
 
     const bottomNav = document.getElementById('bottom-nav');
 
     const newProj = document.createElement('div');
-    newProj.id = projCounter;
+    if (id == null) {
+        newProj.id = projCounter;
+        projCounter += 1;
+    } else {
+        newProj.id = id;
+        projCounter = id + 1;
+    };
     newProj.classList = 'project';
 
     const projectImage = document.createElement('img');
@@ -71,9 +76,24 @@ const newProject = function(descr) {
 
     bottomNav.appendChild(newProj).cloneNode(true);
 
-    projArr.push(newProj);
+    addProjToStorage(descr, newProj.id, id);
 
-    projCounter += 1;
+};
+
+const addProjToStorage = function(projDescr, projId, nullIfNew) {
+
+    let projObj = {
+        descr: projDescr,
+        id: projId
+    };
+
+    if (projObj.id != 0) {
+        projArr.push(projObj);
+    };
+
+    if (nullIfNew == null) {
+        localStorage.setObj(0, projArr);
+    };
 
 };
 
