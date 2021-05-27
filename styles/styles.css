@@ -64,8 +64,6 @@ main {
 }
 .x-button-project {
     margin-left: auto;
-    /* font-size: 0px; */
-    /* Above code used later on for dynamic rendering */
 }
 .x-button-project:hover {
     cursor: pointer;
@@ -113,6 +111,21 @@ footer {
     }
     #navbar {
         width: 235px;
+        background: rgb(220, 220, 220);
+        padding: 30px 15px;
+    }
+    #content {
+        padding: 25px 30px;
+        width:100%;
+        max-width: 1000px;
+    }
+}
+@media (max-width: 600px) {
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+    #navbar {
         background: rgb(220, 220, 220);
         padding: 30px 15px;
     }
