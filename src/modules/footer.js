@@ -12,7 +12,7 @@ const render = function() {
 
     const image = document.createElement('img');
     image.id = 'github-logo';
-    image.src = '/dist/images/github-logo.png';
+    image.src = 'images/github-logo.png';
 
     link.appendChild(image);
     footer.appendChild(text);
