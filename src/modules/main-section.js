@@ -23,7 +23,7 @@ const renderNavBar = function() {
     const allTasksImage = document.createElement('img');
     allTasksImage.id = 'all-tasks-img';
     allTasksImage.classList = 'icon';
-    allTasksImage.src = './dist/images/inbox.png';
+    allTasksImage.src = 'images/inbox.png';
 
     const allTasksText = document.createElement('p');
     allTasksText.innerText = 'All Tasks';
@@ -39,7 +39,7 @@ const renderNavBar = function() {
     const dueTodayImage = document.createElement('img');
     dueTodayImage.id = 'due-today-img';
     dueTodayImage.classList = 'icon';
-    dueTodayImage.src = '/dist/images/today.png';
+    dueTodayImage.src = 'images/today.png';
 
     const dueTodayText = document.createElement('p');
     dueTodayText.innerText = 'Due Today';
@@ -55,7 +55,7 @@ const renderNavBar = function() {
     const dueWeekImage = document.createElement('img');
     dueWeekImage.id = 'due-this-week-img';
     dueWeekImage.classList = 'icon';
-    dueWeekImage.src = '/dist/images/week.png';
+    dueWeekImage.src = 'images/week.png';
 
     const dueWeekText = document.createElement('p');
     dueWeekText.innerText = 'Due This Week';

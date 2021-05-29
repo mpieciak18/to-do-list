@@ -6,14 +6,14 @@ const render = function() {
 
     const logo = document.createElement('img');
     logo.id = 'logo';
-    logo.src = './dist/images/checkbox.png';
+    logo.src = 'images/checkbox.png';
 
     const text = document.createElement('p');
     text.innerText = 'To-Do List';
 
     const bars = document.createElement('img');
     bars.id = 'bars';
-    bars.src = './dist/images/bars.png';
+    bars.src = 'images/bars.png';
     bars.addEventListener('click', displayNav);
 
     header.appendChild(logo);
