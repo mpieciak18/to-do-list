@@ -2,30 +2,27 @@ import { renderTasksFromBottomNav, taskArr } from './tasks.js';
 
 let projArr = [];
 
-let projCounter = 0;
-
 const deleteProj = function(event) {
-
+    // deletes tasks from DOM
     const deletedProj = event.target.parentNode;
     const projId = deletedProj.id;
-
-    let delItems = taskArr.filter(function(value, index, arr){ 
-        if (value.classList[1] == projId) {
-              return value;
+    const taskList = document.getElementById('task-list');
+    for (let i = 0; i < taskList.childNodes.length; i++) {
+        if (taskList.childNodes[i].classList[1] == projId) {
+            taskList.childNodes[i].remove();
+        } else {
+            continue;
         };
-    });
-    let leaveItems = taskArr.filter(function(value, index, arr){ 
-        if (value.classList[1] != projId) {
-              return value;
-        };
-    });
-
-    for (let i = 0; i < delItems.length; i++) {
-        delItems[i].remove()
     };
-
-    taskArr = leaveItems;
-
+    // updates taskArr & local storage
+    let newArr = taskArr.filter(function(value, index, arr){ 
+        if (value.projId != projId) {
+              return value;
+        };
+    });
+    taskArr = newArr;
+    localStorage.setObj(1, taskArr);
+    // updates projArr & local storage
     for (let i = 0; i < taskArr.length; i++) {
         if (deletedProj == taskArr[i]) {
             projArr.splice(i, 1);
@@ -35,7 +32,7 @@ const deleteProj = function(event) {
             continue
         };
     };
-
+    // deletes project from DOM
     deletedProj.remove();
 
 };
@@ -45,12 +42,12 @@ const newProject = function(descr, id = null) {
     const bottomNav = document.getElementById('bottom-nav');
 
     const newProj = document.createElement('div');
-    if (id == null) {
-        newProj.id = projCounter;
-        projCounter += 1;
+    if (id == null && projArr.length == 0) {
+        newProj.id = 0;
+    } else if (id == null && projArr.length > 0) {
+        newProj.id = Number(projArr[projArr.length - 1].id) + 1
     } else {
         newProj.id = id;
-        projCounter = id + 1;
     };
     newProj.classList = 'project';
 
@@ -64,7 +61,11 @@ const newProject = function(descr, id = null) {
     newProj.appendChild(projectImage);
     newProj.appendChild(projectTitle);
 
-    if (projCounter != 0) {
+    if (newProj.id != 0) {
+        const ellipses = document.createElement('div');
+        ellipses.classList = 'ellipses';
+        ellipses.classList.add('proj-ellipses');
+        newProj.appendChild(ellipses);
         const xButton = document.createElement('div');
         xButton.classList = 'x-button-project';
         xButton.innerText = '✕';
@@ -87,11 +88,8 @@ const addProjToStorage = function(projDescr, projId, nullIfNew) {
         id: projId
     };
 
-    if (projObj.id != 0) {
-        projArr.push(projObj);
-    };
-
     if (nullIfNew == null) {
+        projArr.push(projObj);
         localStorage.setObj(0, projArr);
     };
 

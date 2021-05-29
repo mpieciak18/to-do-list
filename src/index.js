@@ -28,14 +28,16 @@ if (localStorage.getObj(0) != null && localStorage.getObj(0).length != 0 ||
     let tasks = localStorage.getObj(1);
 
     for (let i = 0; i < tasks.length; i++) {
-        newTask(tasks[i].descr, tasks[i].date, tasks[i].id);
+        const descr = tasks[i].descr;
+        const date = tasks[i].date;
+        const projId = tasks[i].projId;
+        const taskId = tasks[i].taskId;
+        newTask(descr, date, projId, taskId);
     };
 
 } else {
 
+    newProject('Unassigned Tasks');
     newTask('This is a task that I\'m going to perform today, in a timely fashion.', '11/18/1992');
-    newTask('Task Title', '05/22/2021');
-    newProject('test number one');
-    newProject('test number two');
 
 };

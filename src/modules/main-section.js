@@ -89,8 +89,6 @@ const renderNavBar = function() {
 
     main.prepend(navBar);
 
-    newProject('Unassigned Tasks');
-
 };
 
 // pop-up code

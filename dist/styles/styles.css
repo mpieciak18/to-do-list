@@ -109,15 +109,22 @@ footer {
         display: flex;
         flex-direction: row;
     }
+    #bars {
+        visibility: hidden;
+    }
     #navbar {
         width: 235px;
         background: rgb(220, 220, 220);
         padding: 30px 15px;
+        visibility: visible;
     }
     #content {
         padding: 25px 30px;
         width:100%;
         max-width: 1000px;
+    }
+    .proj-ellipses {
+        visibility: hidden;
     }
 }
 @media (max-width: 600px) {
@@ -125,13 +132,26 @@ footer {
         display: flex;
         flex-direction: column;
     }
+    #bars {
+        height: 5vh;
+        margin-left: auto;
+        padding-right: 20px;
+        padding-left: 10px;
+        cursor: pointer;
+    }
     #navbar {
         background: rgb(220, 220, 220);
-        padding: 30px 15px;
+        padding: 0px;
+        visibility: hidden;
+        height: 0px;
+    }
+    #new-project {
+        justify-content: center;
     }
     #content {
-        padding: 25px 30px;
-        width:100%;
-        max-width: 1000px;
+        padding: 30px 15px;
+    }
+    .proj-ellipses {
+        visibility: visible;
     }
 }
