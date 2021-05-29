@@ -23,7 +23,7 @@ const renderNavBar = function() {
     const allTasksImage = document.createElement('img');
     allTasksImage.id = 'all-tasks-img';
     allTasksImage.classList = 'icon';
-    allTasksImage.src = '/dist/images/inbox.png';
+    allTasksImage.src = './dist/images/inbox.png';
 
     const allTasksText = document.createElement('p');
     allTasksText.innerText = 'All Tasks';

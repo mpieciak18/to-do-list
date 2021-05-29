@@ -53,7 +53,7 @@ const newProject = function(descr, id = null) {
 
     const projectImage = document.createElement('img');
     projectImage.classList = 'icon';
-    projectImage.src = '/dist/images/project.png';
+    projectImage.src = './dist/images/project.png';
 
     const projectTitle = document.createElement('p');
     projectTitle.innerText = descr;
