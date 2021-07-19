@@ -82,12 +82,12 @@ const newProject = function(descr, id = null) {
 };
 
 const addProjToStorage = function(projDescr, projId, nullIfNew) {
-
+    // creates project object
     let projObj = {
         descr: projDescr,
         id: projId
     };
-
+    // if new, adds project object to array & updates local storage
     if (nullIfNew == null) {
         projArr.push(projObj);
         localStorage.setObj(0, projArr);

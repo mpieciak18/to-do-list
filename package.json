@@ -1,7 +1,7 @@
 {
   "name": "to-do-list",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a simple to-do list project, based on the Odin Project curriculum (Javascript track).",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +11,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^5.36.2",
-    "webpack-cli": "^4.6.0"
-  }
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpieciak18/to-do-list.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mpieciak18/to-do-list/issues"
+  },
+  "homepage": "https://github.com/mpieciak18/to-do-list#readme"
 }
